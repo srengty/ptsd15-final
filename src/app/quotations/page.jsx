@@ -1,16 +1,27 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 // import quotations from "./data.json";
 import { Button, Table } from "react-bootstrap";
 import Link from "next/link";
 import { MdEdit, MdDelete } from "react-icons/md";
 import Dialog from "./dialog";
-import prisma from "@/lib/prisma";
+import { useSession } from "next-auth/react";
+import { loadQuotations } from "./create/actions";
+import SignIn from "@/components/sign-in";
 
-export default async function QuotationListPage() {
-  const quotations = await prisma.quotation.findMany({include:{customer:true}});
+export default function QuotationListPage() {
+  const [quotations,setQuotations] = useState([]);
+  useEffect(()=>{
+    // loadQuotations().then(data=>{
+    //   setQuotations(data);
+    // })
+  },[]);
+  const session = useSession();
   return (
     <div>
       <h1>Quotation List</h1>
+      {session.status}
+      <SignIn/>
       <Link className="btn btn-primary" href={'/quotations/create'}>Create new</Link> 
       <Table striped bordered hover>
         <thead>

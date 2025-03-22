@@ -2,9 +2,13 @@ import Link from "next/link";
 
 export default function HomePage(props) {
   return (
-    <>{/* react fragment */}
-      <a href="/about">About us</a><br/>
-      <Link href="/privacy" prefetch>Privacy policy</Link>
+    <>
+      {/* react fragment */}
+      <a href="/about">About us</a>
+      <br />
+      <Link href="/privacy" prefetch>
+        Privacy policy
+      </Link>
       <h1>Hello world</h1>
       <MyC id="titi" other="Another">
         <b>It is bold</b>

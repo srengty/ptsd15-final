@@ -11,3 +11,6 @@ export async function createQuotation(formData){
     });
     redirect('/quotations');
 }
+export async function loadQuotations() {
+    return await prisma.quotation.findMany();
+}
