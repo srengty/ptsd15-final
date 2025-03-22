@@ -1,0 +1,35 @@
+{
+    "data":[
+        {
+            "id": 1,
+            "date": "2025-03-15",
+            "customer":{"id":1, "name":"Limky"},
+            "status": "Pending",
+            "items":[
+                {"id":1, "item":"Laptop1","description":"Lenovo P51s 2019","price":567.9, "qty":1},
+                {"id":2, "item":"Laptop2","description":"Acer Travelmate|P","price":879.8, "qty":2}
+            ]
+        },{
+          "id": 2,
+          "date": "2024-09-21",
+          "customer": { "id": 2, "name": "Dara" },
+          "status": "Revise",
+          "items": [
+            {
+              "id": 1,
+              "item": "Laptop1",
+              "description": "Lenovo P51s 2019",
+              "price": 567.9,
+              "qty": 1
+            },
+            {
+              "id": 2,
+              "item": "Laptop2",
+              "description": "Acer Travelmate|P",
+              "price": 879.8,
+              "qty": 2
+            }
+          ]
+        }
+    ]
+}
