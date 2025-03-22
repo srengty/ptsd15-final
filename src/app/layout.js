@@ -3,6 +3,7 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from 'react-bootstrap';
 import MainNavbar from "./navbar";
+import NextTopLoader from 'nextjs-toploader';
 
 export default function AppLayout({children}) {
   return (
@@ -11,6 +12,7 @@ export default function AppLayout({children}) {
         <title>Home</title>
       </Head>
       <body>
+        <NextTopLoader/>
         <MainNavbar />
         <Container>{children}</Container>
       </body>

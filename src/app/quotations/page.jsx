@@ -1,14 +1,17 @@
 import React from "react";
-import quotations from "./data.json";
-import { Table } from "react-bootstrap";
+// import quotations from "./data.json";
+import { Button, Table } from "react-bootstrap";
 import Link from "next/link";
 import { MdEdit, MdDelete } from "react-icons/md";
 import Dialog from "./dialog";
+import prisma from "@/lib/prisma";
 
-export default function QuotationListPage() {
+export default async function QuotationListPage() {
+  const quotations = await prisma.quotation.findMany({include:{customer:true}});
   return (
     <div>
       <h1>Quotation List</h1>
+      <Link className="btn btn-primary" href={'/quotations/create'}>Create new</Link> 
       <Table striped bordered hover>
         <thead>
             <tr>
@@ -17,10 +20,10 @@ export default function QuotationListPage() {
             </tr>
         </thead>
         <tbody>
-            {quotations.data.map((q)=>(<tr key={q.id}>
+            {quotations.map((q)=>(<tr key={q.id}>
                 <td>{q.id}</td>
-                <td>{q.date}</td>
-                <td>{q.customer.name}</td>
+                <td>{q.date.toDateString()}</td>
+                <td>{q.customer?.customerName}</td>
                 <td>{q.status}</td>
                 <td>
                     <Link href={`/quotations/${q.id}/edit`}><MdEdit /></Link>
